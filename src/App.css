@@ -8,6 +8,7 @@
 /* Definir as fontes globais em index.css ou App.css */
 body {
   font-family: 'Poppins', sans-serif; /* Defina uma fonte padrão */
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {

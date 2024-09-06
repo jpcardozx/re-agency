@@ -151,6 +151,7 @@
   transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   position: relative;
+  margin: 25px 380px;
 }
 
 .team-member-card::before {
