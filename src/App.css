@@ -5,6 +5,19 @@
   text-align: center;
 }
 
+/* Definir as fontes globais em index.css ou App.css */
+body {
+  font-family: 'Poppins', sans-serif; /* Defina uma fonte padrão */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif; /* Fonte para títulos */
+}
+
+p {
+  font-family: 'Roboto', sans-serif; /* Fonte para parágrafos */
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

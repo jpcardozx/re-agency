@@ -2,7 +2,7 @@
 import React from 'react';
 import PropertyCard from './PropertyCard';
 import { properties } from '../data/properties';
-import './PropertyList.css';
+import '../styles/PropertyList.css';
 
 const PropertyList: React.FC = () => {
   return (

@@ -1,10 +1,13 @@
+/* index.css ou App.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap');
+
 :root {
   --background: #f5f5f5;
   --text-color: #333;
   --text-muted: #777;
-  --primary-color: #007BFF;
-  --primary-hover-color: #0056b3;
-  --highlight-color: #4caf50;
+  --primary-color: #601703;
+  --primary-hover-color: #783e01;
+  --highlight-color: #7b1d04;
 }
 
 [data-theme="dark"] {

@@ -3,6 +3,7 @@ import HeroSection from './components/HeroSection'
 import Footer from './components/Footer';
 import MainContainer from './components/MainContainer';
 import './App.css';
+import AboutUsSection from './components/AboutUsSection';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
     < Header />
     < HeroSection />
     < MainContainer />
+    < AboutUsSection />
     < Footer />  
   </>
   )

@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import '/src/styles/ProjectList.css';
+import '../styles/ProjectList.css';
 
 // Lazy Loading dos cards
 const ProjectCard = React.lazy(() => import('./ProjectCard'));

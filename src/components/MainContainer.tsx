@@ -1,7 +1,7 @@
 // src/components/MainContainer.tsx
 import React from 'react';
 import PropertyList from './PropertyList';
-import './MainContainer.css';
+import '../styles/MainContainer.css';
 
 const MainContainer: React.FC = () => {
   return (

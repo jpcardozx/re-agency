@@ -1,6 +1,6 @@
 // src/components/PropertyCard.tsx
 import React from 'react';
-import './PropertyCard.css';
+import '../styles/PropertyCard.css';
 
 interface PropertyCardProps {
   property: {
