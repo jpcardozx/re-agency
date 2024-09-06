@@ -1,0 +1,229 @@
+/* Variáveis CSS para fácil personalização */
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2c3e50;
+  --text-color: #333;
+  --text-color-light: #fff;
+  --background-color: rgba(255, 255, 255, 0.95);
+  --background-color-scrolled: rgba(44, 62, 80, 0.95);
+  --transition-speed: 0.3s;
+}
+
+/* Estilos do Header */
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: var(--background-color);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 1000;
+  transition: all var(--transition-speed) ease;
+}
+
+.header.scrolled {
+  background: var(--background-color-scrolled);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Estilos do Logo */
+.logo {
+  display: flex; /* Adiciona Flexbox para alinhar o conteúdo */
+  align-items: center; /* Centraliza a imagem verticalmente no container */
+  justify-content: center; /* (Opcional) Centraliza horizontalmente, se necessário */
+}
+
+.logo img {
+  height: 140px;
+  width: auto;
+  transition: transform var(--transition-speed) ease;
+  max-height: 100%; /* Garante que a imagem respeite a altura do container */
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+}
+
+/* Estilos de Navegação */
+.nav ul {
+  display: flex;
+  gap: 30px;
+}
+
+.nav ul li {
+  list-style: none;
+}
+
+.nav ul li a {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 10px 0;
+  position: relative;
+  transition: color var(--transition-speed) ease;
+}
+
+.header.scrolled .nav ul li a {
+  color: var(--text-color-light);
+}
+
+.nav ul li a::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all var(--transition-speed) ease-in-out;
+}
+
+.nav ul li a:hover::before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+/* Efeito de destaque no item ativo */
+.nav ul li a.active {
+  color: var(--primary-color);
+}
+
+.nav ul li a.active::before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* Estilos do Menu Mobile */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 1001;
+    width: 30px;
+    height: 20px;
+  }
+
+  .hamburger,
+  .hamburger::before,
+  .hamburger::after {
+    width: 30px;
+    height: 2px;
+    background-color: var(--text-color);
+    display: block;
+    position: absolute;
+    transition: all var(--transition-speed) ease;
+  }
+
+  .header.scrolled .hamburger,
+  .header.scrolled .hamburger::before,
+  .header.scrolled .hamburger::after {
+    background-color: var(--text-color-light);
+  }
+
+  .hamburger::before {
+    content: '';
+    top: -8px;
+  }
+
+  .hamburger::after {
+    content: '';
+    bottom: -8px;
+  }
+
+  .menu-toggle.active .hamburger {
+    background-color: transparent;
+  }
+
+  .menu-toggle.active .hamburger::before {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-toggle.active .hamburger::after {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
+    background-color: var(--secondary-color);
+    transition: right var(--transition-speed) ease;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav.open {
+    right: 0;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .nav ul li a {
+    color: var(--text-color-light);
+    font-size: 1.2rem;
+  }
+
+  .nav ul li a::before {
+    display: none;
+  }
+
+  .nav ul li a:hover,
+  .nav ul li a.active {
+    color: var(--primary-color);
+  }
+}
+
+/* Animação de entrada para os itens do menu */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav.open ul li {
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+.nav.open ul li:nth-child(1) { animation-delay: 0.1s; }
+.nav.open ul li:nth-child(2) { animation-delay: 0.2s; }
+.nav.open ul li:nth-child(3) { animation-delay: 0.3s; }
+.nav.open ul li:nth-child(4) { animation-delay: 0.4s; }

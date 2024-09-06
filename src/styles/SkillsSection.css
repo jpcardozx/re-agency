@@ -1,0 +1,134 @@
+/* Skills Section Container */
+.skills-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #f3f3f3, #e8e8e8);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .skills-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  /* Section Title */
+  .section-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+    position: relative;
+  }
+  
+  .section-title::after {
+    content: '';
+    width: 80px;
+    height: 6px;
+    background-color: #4CAF50;
+    display: block;
+    margin: 20px auto 0;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px rgba(76, 175, 80, 0.4);
+  }
+  
+  /* Skills Grid Layout */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+  }
+  
+  /* Skill Card Styles */
+  .skill-card {
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    border-radius: 15px;
+    padding: 30px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    height: 200px;
+}
+  
+  .skill-card:hover {
+    transform: rotateY(10deg) translateY(-10px);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 200px;
+    height: 200px;
+    background: rgba(76, 175, 80, 0.15);
+    border-radius: 50%;
+    z-index: 1;
+    transition: transform 0.6s ease;
+  }
+  
+  .skill-card:hover::before {
+    transform: scale(1.5) translate(50px, 50px);
+  }
+  
+  /* Skill Content */
+  .skill-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Skill Icon */
+  .skill-icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 0;
+    transition: transform 0.3s ease;
+  }
+  
+  .skill-card:hover .skill-icon {
+    transform: rotate(15deg) scale(1.2);
+  }
+  
+  /* Skill Name */
+  .skill-name {
+    font-size: 1.7rem;
+    color: #333;
+    margin-bottom: 10px;
+    margin-top: 0;
+    font-weight: 600;
+  }
+  
+  /* Skill Description */
+  .skill-description {
+    font-size: 1rem;
+    color: #777;
+    line-height: 1.6;
+    max-width: 180px;
+    margin: 0 auto;
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 2rem;
+    }
+  
+    .skill-card {
+      padding: 20px;
+    }
+  
+    .skill-name {
+      font-size: 1.3rem;
+    }
+  
+    .skill-description {
+      font-size: 0.9rem;
+    }
+  }
+  
