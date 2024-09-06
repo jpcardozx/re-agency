@@ -1,0 +1,23 @@
+/* src/components/PropertyList.css */
+.property-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 0 auto;
+    padding: 2rem;
+    max-width: 1200px;
+    opacity: 0;
+    animation: slideUp 0.5s ease-in-out forwards;
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
