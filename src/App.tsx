@@ -3,6 +3,7 @@ import HeroSection from './components/HeroSection'
 import Footer from './components/Footer';
 import MainContainer from './components/MainContainer';
 import './App.css';
+import './index.css'
 import AboutUsSection from './components/AboutUsSection';
 import DecorativeSection from './components/DecorativeSection';
 import OfferForm from './components/OfferForm';

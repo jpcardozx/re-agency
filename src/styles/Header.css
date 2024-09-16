@@ -12,6 +12,8 @@
 /* Estilos do Header */
 .header {
   position: fixed;
+  padding-left: 0;
+  padding-right: 0;
   width: 100%;
   top: 0;
   left: 0;
@@ -30,7 +32,7 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -41,11 +43,12 @@
   display: flex; /* Adiciona Flexbox para alinhar o conteúdo */
   align-items: center; /* Centraliza a imagem verticalmente no container */
   justify-content: center; /* (Opcional) Centraliza horizontalmente, se necessário */
+  padding: 0;
 }
 
 .logo img {
-  height: 140px;
-  width: auto;
+  height: auto;
+  width: 155px;
   transition: transform var(--transition-speed) ease;
   max-height: 100%; /* Garante que a imagem respeite a altura do container */
 }

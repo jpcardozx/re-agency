@@ -9,6 +9,7 @@
 body {
   font-family: 'Poppins', sans-serif; /* Defina uma fonte padrão */
   overflow-x: hidden;
+  margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -19,12 +20,6 @@ p {
   font-family: 'Roboto', sans-serif; /* Fonte para parágrafos */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }

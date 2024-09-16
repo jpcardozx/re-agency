@@ -1,90 +1,222 @@
-/* Hero Section Styles */
+/* 1. CSS Variables for Theming */
+:root {
+  /* Color Palette */
+  --color-primary: #532a09;
+  --color-secondary: #ffffff;
+  --color-accent: #342b1c;
+  --color-light: #ffffff;
+  --color-dark: #111827;
+  --color-overlay: rgba(0, 0, 0, 0.5);
+
+  /* Typography */
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Roboto', sans-serif;
+  --font-size-title: clamp(2rem, 5vw, 3rem);
+  --font-size-description: clamp(1rem, 2.5vw, 1.25rem);
+
+  /* Spacing */
+  --spacing-small: 8px;
+  --spacing-medium: 16px;
+  --spacing-large: 32px;
+
+  /* Transition */
+  --transition-speed: 0.3s;
+
+  /* Breakpoints */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+}
+
+/* 2. Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #ffffffa3;
+    --color-secondary: #fdfdfd93;
+    --color-accent: #592424;
+    --color-light: #24242de7;
+    --color-dark: #1f2937;
+    --color-overlay: rgba(189, 189, 189, 0.33);
+  }
+}
+
+/* 3. Hero Section Styling */
 .hero-section {
-    position: relative;
-    height: 100vh;
-    background-image: url('https://images.unsplash.com/photo-1505873242700-f289a29e1e0f?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    overflow: hidden;
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  padding: var(--spacing-medium);
+  color: var(--color-light);
+  background: url('https://images.unsplash.com/photo-1558036117-15d82a90b9b1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+  overflow: hidden;
+  font-family: var(--font-primary);
+  transition: background 0.5s ease;
+  background-color: #ffffffdd;
+}
+
+/* 4. Parallax Effect */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background: rgba(0, 0, 0, 0.23);
+  transform: translateZ(0) scale(1.1);
+  z-index: 1;
+  pointer-events: none;
+  animation: parallax 20s linear infinite;
+}
+
+@keyframes parallax {
+  0% {
+    transform: translateX(0) translateY(0) scale(1.1);
   }
-  
-  /* Animation for hero content */
+  50% {
+    transform: translateX(10px) translateY(-10px) scale(1.1);
+  }
+  100% {
+    transform: translateX(0) translateY(0) scale(1.1);
+  }
+}
+
+/* 5. Hero Content Container */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  background: var(--color-overlay);
+  backdrop-filter: blur(10px);
+  padding: var(--spacing-large);
+  border-radius: 12px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-medium);
+  animation: slideIn 1s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 6. Hero Card */
+.hero-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 680px;
+  padding: 4px 18px;
+  box-sizing: border-box;
+}
+
+/* 7. Hero Title */
+.hero-title {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-title);
+  margin-bottom: var(--spacing-small);
+  position: relative;
+  color: var(--color-light);
+  letter-spacing: 3px;
+  line-height: 1.4;
+}
+
+.hero-title::after {
+  content: '';
+  display: block;
+  width: 195px;
+  height: 4px;
+  background-color: var(--color-accent);
+  margin: var(--spacing-small) auto 0;
+  border-radius: 2px;
+}
+
+/* 8. Hero Description */
+.hero-description {
+  font-size: var(--font-size-description);
+  line-height: 1.5;
+  color: #1f1f28d0;
+  margin-bottom: var(--spacing-large);
+  max-width: 600px;
+}
+
+/* 9. Call-to-Action Button */
+.cta-button {
+  position: relative;
+  display: inline-block;
+  padding: 14px 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  background-color: var(--color-accent);
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.103);
+  transform: translate(-50%, -50%) rotate(45deg);
+  transition: opacity var(--transition-speed) ease;
+  opacity: 0;
+}
+
+.cta-button:hover::before,
+.cta-button:focus::before {
+  opacity: 1;
+}
+
+.cta-button:hover,
+.cta-button:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+/* 10. Responsive Design */
+@media (max-width: var(--breakpoint-md)) {
   .hero-content {
-    background-color: rgba(240, 248, 255, 0.773);
-    padding: 48px;
-    border-radius: 25px;
-    max-width: 650px;
-    opacity: 0.5;
-    transform: translateY(50px);
-    animation: fadeInUp 1.5s ease-out forwards;
+    padding: var(--spacing-medium);
   }
-  
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+
+  .hero-title {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
   }
-  
-  /* Advanced Typography */
-  .hero-content h1 {
-    font-size: 3.5rem;
-    line-height: 1.2;
-    margin-bottom: 20px;
-    font-weight: 700;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.466);
-    animation: fadeIn 1.2s ease-in forwards;
+
+  .hero-description {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
   }
-  
-  .hero-content p {
-    font-size: 1.25rem;
-    margin-bottom: 40px;
-    color: rgba(0, 0, 0, 0.9);
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.485);
-    max-width: 800px;
-    margin: 0 auto 40px auto;
-    line-height: 1.6;
-    animation: fadeIn 1.5s ease-in forwards 0.5s;
-  }
-  
-  /* Call-to-Action Button */
+
   .cta-button {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color: #b05718;
-    color: white;
-    font-size: 1.2rem;
-    text-decoration: none;
-    border-radius: 50px;
-    box-shadow: 0 8px 16px rgba(80, 10, 10, 0.623);
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    animation: fadeIn 1.7s ease-in forwards 0.8s;
+    padding: 12px 30px;
+    font-size: 0.95rem;
   }
-  
-  .cta-button:hover {
-    background-color: #ff4a4a;
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(255, 107, 107, 0.6);
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .hero-content h1 {
-      font-size: 2.5rem;
-    }
-  
-    .hero-content p {
-      font-size: 1rem;
-    }
-  
-    .cta-button {
-      font-size: 1rem;
-      padding: 12px 24px;
-    }
-  }
-  
+}
+
+/* 11. Accessibility Enhancements */
+.cta-button:focus-visible {
+  outline: 3px dashed var(--color-accent);
+  outline-offset: 4px;
+}
+
+/* 12. Smooth Scrolling for Anchor Links */
+html {
+  scroll-behavior: smooth;
+}

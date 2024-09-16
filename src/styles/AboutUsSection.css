@@ -1,50 +1,70 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Roboto:wght@400;600&display=swap');
 
 :root {
-  --primary-color: #2c3e50; /* Consistent primary color */
-  --accent-color: #e67e22; /* Accent color for interactive elements */
-  --secondary-color: #f5f5f5; /* Light background */
+  --primary-color: #5f758a;
+  --accent-color: #e67e22;
+  --secondary-color: #f5f5f5;
   --text-dark: #333;
   --text-light: #777;
+  --title-color: #4b211c;
   --transition-speed: 0.3s;
+  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.about-us-section {
+/* Global Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
   background-color: var(--secondary-color);
-  padding: 2rem 2rem;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}
+
+/* About Us Section */
+.about-us-section {
+  padding: clamp(2rem, 5vw, 5rem);
+  margin: 0 auto;
   text-align: center;
-  max-width: 1200px;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
+  background: lightblue;
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
 }
 
+/* Animated Background */
 .about-us-section::before {
   content: '';
   position: absolute;
-  top: -50%;
-  left: -50%;
+  inset: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(44, 62, 80, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
-  animation: pulse 15s ease-in-out infinite;
+  background: 
+    radial-gradient(circle at 20% 35%, rgba(135, 154, 172, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 44%, rgba(230, 126, 34, 0.05) 0%, transparent 50%);
+  animation: backgroundShift 15s ease-in-out infinite alternate;
 }
 
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+@keyframes backgroundShift {
+  0% { transform: translate(-5%, -5%) rotate(0deg); }
+  100% { transform: translate(5%, 5%) rotate(3deg); }
 }
 
+/* Title Styles */
 .about-us-title {
-  font-size: 3.5rem;
-  color: #4b211c; /* Change this to the color you want */
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--title-color);
   margin-bottom: 2rem;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
   position: relative;
   display: inline-block;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
-
 
 .about-us-title::after {
   content: '';
@@ -54,22 +74,23 @@
   transform: translateX(-50%);
   width: 50px;
   height: 3px;
-  background-color: var(--primary-color);
-  transition: width var(--transition-speed) ease;
+  background-color: var(--accent-color);
+  transition: width var(--transition-speed) ease, background-color var(--transition-speed) ease;
 }
 
 .about-us-title:hover::after {
   width: 100px;
+  background-color: var(--primary-color);
 }
 
+/* Description Styles */
 .about-us-description {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2vw, 1.25rem);
   color: var(--text-light);
   margin-bottom: 4rem;
   line-height: 1.8;
   max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 1s ease forwards 0.5s;
@@ -82,16 +103,30 @@
   }
 }
 
+/* Values Section */
 .about-us-values {
   background-color: #fff;
-  padding: 3rem;
+  padding: clamp(2rem, 4vw, 3rem);
   border-radius: 12px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
   max-width: 700px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
   transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  overflow: hidden;
+}
+
+.about-us-values::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(230, 126, 34, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity var(--transition-speed) ease;
 }
 
 .about-us-values:hover {
@@ -99,12 +134,15 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
+.about-us-values:hover::before {
+  opacity: 1;
+}
+
+/* Subtitle Styles */
 .about-us-subtitle {
-  font-size: 2.25rem;
-  color: var(--text-dark);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  color: var(--primary-color);
   margin-bottom: 1.5rem;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 600;
   position: relative;
   display: inline-block;
 }
@@ -116,8 +154,9 @@
   top: 50%;
   width: 30px;
   height: 2px;
-  background-color: var(--primary-color);
+  background-color: var(--accent-color);
   transform: translateY(-50%);
+  transition: width var(--transition-speed) ease;
 }
 
 .about-us-subtitle::before {
@@ -128,17 +167,96 @@
   right: -40px;
 }
 
+.about-us-subtitle:hover::before,
+.about-us-subtitle:hover::after {
+  width: 50px;
+}
+
+/* Values Text Styles */
 .about-us-values-text {
-  font-size: 1.15rem;
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
   color: var(--text-light);
   line-height: 1.7;
   position: relative;
   padding: 20px;
   background-color: rgba(44, 62, 80, 0.05);
   border-radius: 8px;
-  transition: background-color var(--transition-speed) ease;
+  transition: all var(--transition-speed) ease;
 }
 
 .about-us-values-text:hover {
   background-color: rgba(44, 62, 80, 0.1);
+  transform: scale(1.02);
+}
+
+/* Team Members Section */
+.team-members {
+  margin-top: 4rem;
+}
+
+.team-members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-us-section {
+    padding: 2rem;
+  }
+  
+  .about-us-values {
+    padding: 1.5rem;
+  }
+
+  .about-us-title {
+    font-size: 2rem;
+  }
+
+  .about-us-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .team-members-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .about-us-section::before,
+  .about-us-description,
+  .about-us-values,
+  .about-us-values-text {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --secondary-color: #1a1a1a;
+    --text-dark: #f5f5f5;
+    --text-light: #bebebe;
+    --title-color: #e67e22;
+  }
+
+  .about-us-section {
+    background: linear-gradient(135deg, #2c3e50 0%, var(--secondary-color) 100%);
+  }
+
+  .about-us-values {
+    background-color: #2c3e50;
+  }
+
+  .about-us-values-text {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .about-us-values-text:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
 }

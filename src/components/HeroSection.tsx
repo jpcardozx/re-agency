@@ -1,19 +1,21 @@
 import React from 'react';
-import '/src/styles/HeroSection.css'; // Estilos avançados
+import '/src/styles/HeroSection.css';
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="hero-section">
+    <section className="hero-section" aria-labelledby="hero-heading">
       <div className="hero-content">
-        <h1>Building Dynamic, Future-Ready Web Solutions</h1>
-        <p>
-          Hi, I’m @jpcardox, a passionate Front-End Developer focused on
-          creating fast, responsive, and interactive websites with modern
-          technologies like React, Figma and TypeScript.
-        </p>
-        <a href="#projects" className="cta-button">
-          Explore My Work
-        </a>
+        <div className="hero-card">
+          <h1 id="hero-heading" className="hero-title">
+            <span className="hero-title-line">Find Your Perfect Home With CDMP RealEstate</span>
+          </h1>
+          <p className="hero-description">
+            Your dream home is closer than you think. Whether you’re looking for a stylish city apartment or a peaceful family house, CDMP RealEstate offers the best properties tailored to your needs. Let us help you make the right move with confidence.
+          </p>
+          <button className="cta-button" role="button">
+            Browse Our Listings
+          </button>
+        </div>
       </div>
     </section>
   );
