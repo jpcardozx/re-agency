@@ -3,9 +3,9 @@
   --primary-color: #272a2c;
   --secondary-color: #2c3e50;
   --text-color: #333;
-  --text-color-light: #fff;
+  --text-color-light: #000000;
   --background-color: rgba(255, 255, 255, 0.95);
-  --background-color-scrolled: rgba(118, 74, 58, 0.807);
+  --background-color-scrolled: rgba(255, 255, 255, 0.7);
   --transition-speed: 0.3s;
 }
 
@@ -27,6 +27,7 @@
 
 .header.scrolled {
   background: var(--background-color-scrolled);
+  color: black;
 }
 
 .container {
@@ -80,6 +81,10 @@
   padding: 10px 0;
   position: relative;
   transition: color var(--transition-speed) ease;
+}
+
+.nav.ul.li.a.scrolled {
+  color: black;
 }
 
 .header.scrolled .nav ul li a {

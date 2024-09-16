@@ -92,6 +92,11 @@
     box-shadow: 0 0 15px rgba(118, 74, 58, 0.3);
   }
   
+.offer-form > h3 {
+  font-size: 1rem;
+  font-weight: 450;
+}
+
   /* Submit Button */
   .cta-btn {
     display: block;
@@ -109,7 +114,7 @@
   }
   
   .cta-btn:hover {
-    background-color: rgba(118, 74, 58, 1);
+    background-color: rgb(255, 255, 255);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   }
   

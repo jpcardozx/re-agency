@@ -1,9 +1,9 @@
 /* src/components/PropertyCard.css */
 .property-card {
     background-color: white;
-    border-radius: 10px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.472);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     cursor: pointer;
@@ -11,7 +11,7 @@
   
   .property-card:hover {
     transform: scale(1.02);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8);
   }
   
   .property-image {
@@ -35,6 +35,7 @@
     font-size: 1.8rem;
     color: var(--text-color);
     margin-bottom: 0.5rem;
+    margin-top: 0;
   }
   
   .property-details p {
