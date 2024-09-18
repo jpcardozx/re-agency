@@ -6,7 +6,7 @@
   --color-accent: #342b1c;
   --color-light: #ffffff;
   --color-dark: #111827;
-  --color-overlay: rgba(0, 0, 0, 0.5);
+  --color-overlay: rgba(0, 0, 0, 0.836);
 
   /* Typography */
   --font-primary: 'Poppins', sans-serif;
@@ -34,9 +34,9 @@
     --color-primary: #ffffffa3;
     --color-secondary: #fdfdfd93;
     --color-accent: #592424;
-    --color-light: #24242de7;
+    --color-light: #14141ae7;
     --color-dark: #1f2937;
-    --color-overlay: rgba(189, 189, 189, 0.33);
+    --color-overlay: rgba(228, 228, 228, 0.507);
   }
 }
 
@@ -51,8 +51,8 @@
   background: url('https://images.unsplash.com/photo-1558036117-15d82a90b9b1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
   overflow: hidden;
   font-family: var(--font-primary);
-  transition: background 0.5s ease;
-  background-color: #ffffffdd;
+  transition: 0.5s ease;
+  background-color: #fffffffd;
 }
 
 /* 4. Parallax Effect */
@@ -63,7 +63,7 @@
   left: -10%;
   width: 120%;
   height: 120%;
-  background: rgba(0, 0, 0, 0.23);
+  background: rgba(0, 0, 0, 0.295);
   transform: translateZ(0) scale(1.1);
   z-index: 1;
   pointer-events: none;
