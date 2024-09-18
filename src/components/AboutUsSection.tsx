@@ -26,6 +26,11 @@ const AboutUsSection: React.FC = () => {
         <div className="team-members-grid">
           {/* Example of team members */}
           <TeamMemberCard
+            name="Tim Nicholson"
+            role="Founder & CEO"
+            image="https://github.com/jpcardozx/re-agency/blob/main/src/assets/bm.png?raw=true"
+          />
+          <TeamMemberCard
             name="John Silva"
             role="Real Estate Agent"
             image="https://github.com/jpcardozx/re-agency/blob/main/src/assets/DALL%C2%B7E%202024-09-06%2015.34.08%20-%20A%20professional%20corporate%20headshot%20of%20a%20middle-aged%20man%20named%20John%20Smith.%20He%20has%20light%20skin,%20short,%20neatly%20styled%20brown%20hair,%20and%20a%20well-groomed%20beard.png?raw=true"
@@ -34,6 +39,11 @@ const AboutUsSection: React.FC = () => {
             name="Sarah Johnson"
             role="Consultant"
             image="https://github.com/jpcardozx/re-agency/blob/main/src/assets/7dbc85d9-0f85-49cd-8619-5eddd50e37f5.png?raw=true"
+          />
+          <TeamMemberCard
+            name="Matteo de Mello"
+            role="Intern"
+            image="https://github.com/jpcardozx/re-agency/blob/main/src/assets/gz.png?raw=true"
           />
         </div>
       </div>
